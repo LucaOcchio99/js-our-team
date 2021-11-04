@@ -59,26 +59,56 @@ const carta = [
 
 const contenitore_padre = document.querySelector('.team-container');
 
+generazione_carte(carta ,contenitore_padre);
+
 /*itero l'array della carta e genero il markup con i contenuti degli oggetti */
-  for(let i = 0; i < carta.length; i++ ) {
-     const carta_item = carta[i];
-     console.log(carta_item); //restituisce gli elementi contenuti nell' array [i] quindi di fatto restituisce l'intero oggetto
+//  for(let i = 0; i < carta.length; i++ ) {
+//     const carta_item = carta[i];
+//     console.log(carta_item); //restituisce gli elementi contenuti nell' array [i] quindi di fatto restituisce l'intero oggetto
   
-     /* creo e e aggiungo il markup delle card*/
-contenitore_padre.innerHTML += `
-<div class="team-card">
-            <div class="card-image">
-              <img
-                src=${carta_item.foto}
-                alt=${carta_item.nome}
-              />
-            </div>
-            <div class="card-text">
-              <h3>${carta_item.nome}</h3>
-              <p>${carta_item.ruolo}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-`
-    }
+//     /* creo e e aggiungo il markup delle card*/
+//contenitore_padre.innerHTML += `
+//<div class="team-card">
+//            <div class="card-image">
+//              <img
+//                src=${carta_item.foto}
+//                alt=${carta_item.nome}
+//              />
+ //           </div>
+//            <div class="card-text">
+//              <h3>${carta_item.nome}</h3>
+//              <p>${carta_item.ruolo}</p>
+//            </div>
+//          </div>
+//        </div>
+//      </div>
+//`
+//    } 
+
+/**
+ * Generazione carte
+ */
+function generazione_carte(carta,contenitore_padre) {
+    for(let i = 0; i < carta.length; i++ ) {
+        const carta_item = carta[i];
+        console.log(carta_item); //restituisce gli elementi contenuti nell' array [i] quindi di fatto restituisce l'intero oggetto
+     
+        /* creo e e aggiungo il markup delle card*/
+   contenitore_padre.innerHTML += `
+   <div class="team-card">
+               <div class="card-image">
+                 <img
+                   src=${carta_item.foto}
+                   alt=${carta_item.nome}
+                 />
+               </div>
+               <div class="card-text">
+                 <h3>${carta_item.nome}</h3>
+                 <p>${carta_item.ruolo}</p>
+               </div>
+             </div>
+           </div>
+         </div>
+   `
+       }
+}
