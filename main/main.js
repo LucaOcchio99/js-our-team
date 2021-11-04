@@ -16,6 +16,7 @@ il nostro JavaScript in
 
 /* Creo array di oggetti con elementi nome,
 ruolo e foto */
+/*creo la struttura dati per le card */
 
 const carta = [
     {
@@ -47,7 +48,37 @@ const carta = [
         foto : "./img/barbara-ramos-graphic-designer.jpg",
         nome : 'Barbara Ramos',
         ruolo : 'Graphic Designer'
+    },
+];
+
+//console.log(carta) <-- mi stampa l'array (che contiene tutti gli oggetti)
+
+/* - Prendendo come riferimento il layout di
+ esempio presente nell’html, stampiamo
+  tutte le card del nostro team. */
+
+const contenitore_padre = document.querySelector('.team-container');
+
+/*itero l'array della carta e genero il markup con i contenuti degli oggetti */
+  for(let i = 0; i < carta.length; i++ ) {
+     const carta_item = carta[i];
+     console.log(carta_item); //restituisce gli elementi contenuti nell' array [i] quindi di fatto restituisce l'intero oggetto
+  
+     /* creo e e aggiungo il markup delle card*/
+contenitore_padre.innerHTML += `
+<div class="team-card">
+            <div class="card-image">
+              <img
+                src=${carta_item.foto}
+                alt=${carta_item.nome}
+              />
+            </div>
+            <div class="card-text">
+              <h3>${carta_item.nome}</h3>
+              <p>${carta_item.ruolo}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+`
     }
-
-
-]
