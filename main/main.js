@@ -91,7 +91,7 @@ generazione_carte(carta ,contenitore_padre);
 function generazione_carte(carta,contenitore_padre) {
     for(let i = 0; i < carta.length; i++ ) {
         const carta_item = carta[i];
-        console.log(carta_item); //restituisce gli elementi contenuti nell' array [i] quindi di fatto restituisce l'intero oggetto
+       // console.log(carta_item); restituisce gli elementi contenuti nell' array [i] quindi di fatto restituisce l'intero oggetto
      
         /* creo e e aggiungo il markup delle card*/
    contenitore_padre.innerHTML += `
@@ -112,3 +112,44 @@ function generazione_carte(carta,contenitore_padre) {
    `
        }
 }
+
+/*- Utilizziamo poi gli input presenti nella
+ pagina per permettere all’utente di
+ aggiungere nuovi membri del team. */
+
+/* Dovrei creare, sostanzialmente una funzione uguale a quella gia
+fatta, pero i valori devono essere letti dal input, quindi presumo
+serva un value */
+
+ //referenze
+ const btn_add = document.getElementById('addMemberButton');
+ const btn_nam = document.getElementById('name');
+ const btn_role = document.getElementById('role');
+ const btn_image = document.getElementById('image');
+ 
+//associo l'evento click
+btn_add.addEventListener('click', function(){
+    //leeggo, tramite il value, i valori d'input
+    const nome = btn_nam.value;
+    const ruolo = btn_role.value;
+    const immagine = btn_image.value;
+
+   contenitore_padre.innerHTML += `
+   <div class="team-card">
+               <div class="card-image">
+                 <img
+                   src=${immagine}
+                   alt=${nome}
+                 />
+               </div>
+               <div class="card-text">
+                 <h3>${nome}</h3>
+                 <p>${ruolo}</p>
+               </div>
+             </div>
+           </div>
+         </div>
+   `
+       }
+
+);
