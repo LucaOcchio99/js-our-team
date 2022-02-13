@@ -77,7 +77,7 @@ generazione_carte(carta ,contenitore_padre);
 //            <div class="card-text">
 //              <h3>${carta_item.nome}</h3>
 //              <p>${carta_item.ruolo}</p>
-//            </div>
+//            </div> 
 //          </div>
 //        </div>
 //      </div>
